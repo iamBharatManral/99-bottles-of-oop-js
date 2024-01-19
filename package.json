@@ -1,0 +1,25 @@
+{
+  "name": "99-bottles-of-oop",
+  "version": "1.0.0",
+  "description": "[99 Bottles Of OOP](https://sandimetz.com/99bottles) By Sandi Metz",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest src/tests"
+  },
+  "keywords": [],
+  "author": "Bharat Manral",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.23.3",
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-transform-modules-commonjs"
+    ]
+  }
+}
