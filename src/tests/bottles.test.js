@@ -1,4 +1,4 @@
-import { Bottles } from '../lib/bottles';
+import { Bottles } from '../lib/bottles-shameless-green.js';
 
 describe('Bottles', () => {
     test('the first verse', () => {
