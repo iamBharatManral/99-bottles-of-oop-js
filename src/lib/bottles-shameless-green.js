@@ -1,4 +1,4 @@
-import {downTo} from "./helpers.js";
+import {capitalize, downTo} from "./helpers.js";
 
 class Bottles {
     song(){
@@ -13,30 +13,29 @@ class Bottles {
         if(number === 1) return 'bottle'
         return 'bottles'
     }
+    pronoun(number){
+        if(number === 1) return 'it'
+        return 'one'
+    }
+    quantity(number){
+        if(number === 0) return 'no more'
+        return number.toString()
+    }
+    action(number){
+        if(number === 0) return 'Go to the store and buy some more, '
+        return `Take ${this.pronoun(number)} down and pass it around, `
+    }
+    successor(number){
+        if(number === 0) return 99
+        return number - 1
+    }
     verse(number){
-        switch (number){
-            case 0:
-                return (
-                    'No more bottles of beer on the wall, ' +
-                    'no more bottles of beer.\n' +
-                    'Go to the store and buy some more, ' +
-                    '99 bottles of beer on the wall.\n'
-                )
-            case 1:
-                return (
-                    '1 bottle of beer on the wall, ' +
-                    '1 bottle of beer.\n' +
-                    'Take it down and pass it around, ' +
-                    'no more bottles of beer on the wall.\n'
-                )
-            default:
-                return (
-                    `${number} bottles of beer on the wall, ` +
-                    `${number} bottles of beer.\n` +
-                    'Take one down and pass it around, ' +
-                    `${number-1} ${this.container(number-1)} of beer on the wall.\n`
-                )
-        }
+        return (
+            `${capitalize(this.quantity(number))} ${this.container(number)} of beer on the wall, ` +
+            `${this.quantity(number)} ${this.container(number)} of beer.\n` +
+            `${this.action(number)}` +
+            `${this.quantity(this.successor(number))} ${this.container(this.successor(number))} of beer on the wall.\n`
+        )
     }
 }
 
